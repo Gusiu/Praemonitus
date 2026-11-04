@@ -1,0 +1,2 @@
+# Plik danych w postaci oryginalnej (CRLF, BOM) - bez konwersji końców linii, żeby suma SHA-256 była stała
+data/raw/*.csv -text
