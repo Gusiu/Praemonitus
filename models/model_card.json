@@ -1,0 +1,99 @@
+{
+  "model_id": "5322a5e0907f",
+  "trained_at": "2026-11-04T23:29:52+00:00",
+  "model": "Random forest",
+  "model_key": "rf",
+  "feature_set": "physics",
+  "best_params": {},
+  "python_version": "3.12.3",
+  "sklearn_version": "1.9.1",
+  "data_sha256": "dc6630cd9b1f0f853922fad78a1b6436570d3f1ec863f1dd5c4340ac56bc8a8e",
+  "train_rows": 8000,
+  "test_rows": 2000,
+  "input_features": [
+    "type",
+    "air_temp_k",
+    "process_temp_k",
+    "rotational_speed_rpm",
+    "torque_nm",
+    "tool_wear_min"
+  ],
+  "model_features": [
+    "air_temp_k",
+    "process_temp_k",
+    "rotational_speed_rpm",
+    "torque_nm",
+    "tool_wear_min",
+    "temp_diff_k",
+    "power_w",
+    "strain_min_nm",
+    "type"
+  ],
+  "training_ranges": {
+    "air_temp_k": {
+      "min": 295.3,
+      "max": 304.5
+    },
+    "process_temp_k": {
+      "min": 305.7,
+      "max": 313.8
+    },
+    "rotational_speed_rpm": {
+      "min": 1168.0,
+      "max": 2886.0
+    },
+    "torque_nm": {
+      "min": 3.8,
+      "max": 76.6
+    },
+    "tool_wear_min": {
+      "min": 0.0,
+      "max": 253.0
+    }
+  },
+  "threshold": 0.29154103852596314,
+  "cost_ratio_fn_fp": 10,
+  "cost_sensitivity": [
+    {
+      "cost_ratio": "5:1",
+      "threshold": 0.3162479061976549,
+      "cv_cost_per_1000": 29.110913518922636
+    },
+    {
+      "cost_ratio": "10:1",
+      "threshold": 0.29154103852596314,
+      "cv_cost_per_1000": 55.61090031568723
+    },
+    {
+      "cost_ratio": "20:1",
+      "threshold": 0.054355108877721936,
+      "cv_cost_per_1000": 106.30033082833964
+    }
+  ],
+  "cv_metrics": {
+    "pr_auc_mean": 0.8922486081537316,
+    "pr_auc_std": 0.02501698134062675,
+    "roc_auc_mean": 0.97521569302084,
+    "recall_at_threshold_mean": 0.8486195286195286,
+    "precision_at_threshold_mean": 0.8424418188327962,
+    "fp_per_1000_mean": 5.625,
+    "cost_per_1000_mean": 56.875
+  },
+  "test_metrics": {
+    "threshold": 0.29154103852596314,
+    "pr_auc": 0.8711053188734469,
+    "roc_auc": 0.9704854767994155,
+    "recall": 0.8235294117647058,
+    "precision": 0.9180327868852459,
+    "f1": 0.8682170542635659,
+    "accuracy": 0.9915,
+    "tn": 1927,
+    "fp": 5,
+    "fn": 12,
+    "tp": 56,
+    "fp_per_1000": 2.5,
+    "cost": 125.0,
+    "cost_per_1000": 62.5
+  },
+  "model_sha256": "5322a5e0907f640a617df92fe99919f932fb744fda0705c897a61f247b9eace0"
+}
