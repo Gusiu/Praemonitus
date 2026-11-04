@@ -1,0 +1,5 @@
+# Normalise text files to LF in the repository and on checkout.
+* text=auto eol=lf
+# Keep the raw dataset byte-for-byte (CRLF and BOM); its SHA-256 is in data/SOURCE.md.
+data/raw/*.csv -text
+*.joblib binary
