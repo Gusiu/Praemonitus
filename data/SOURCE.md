@@ -16,6 +16,21 @@
 
 The data are synthetic and contain no personal data.
 
+## Column dictionary
+
+| Column | Name in code | Type | Unit | Description | Role |
+|---|---|---|---|---|---|
+| UDI | `udi` | int | - | Row identifier (1-10000) | identifier, not a feature |
+| Product ID | `product_id` | str | - | Variant letter followed by a serial number | identifier, not a feature |
+| Type | `type` | category | - | Product quality variant L / M / H | feature |
+| Air temperature [K] | `air_temp_k` | float | K | Ambient air temperature | feature |
+| Process temperature [K] | `process_temp_k` | float | K | Process temperature | feature |
+| Rotational speed [rpm] | `rotational_speed_rpm` | int | rpm | Spindle rotational speed | feature |
+| Torque [Nm] | `torque_nm` | float | Nm | Torque | feature |
+| Tool wear [min] | `tool_wear_min` | int | min | Accumulated tool usage time | feature |
+| Machine failure | `machine_failure` | 0/1 | - | 1 if the run ended with a machine failure | label |
+| TWF, HDF, PWF, OSF, RNF | `twf` ... `rnf` | 0/1 | - | Failure mode flags (tool wear, heat dissipation, power, overstrain, random) | excluded - they define the label; used only in error analysis |
+
 ## Citation
 
 AI4I 2020 Predictive Maintenance Dataset [Dataset]. (2020). UCI Machine Learning Repository. https://doi.org/10.24432/C5HS5C
