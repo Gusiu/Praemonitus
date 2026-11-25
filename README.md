@@ -59,7 +59,7 @@ Console:
 python cli.py                       # interactive, asks again on invalid values
 python cli.py --history 10          # last 10 predictions
 python cli.py --export history.csv  # export the history to CSV
-python cli.py --batch docs/demo_runs.csv
+python cli.py --batch tests/data/demo_runs.csv
 ```
 
 Predictions are stored in `predictions.db` (ignored by git); set the
@@ -127,6 +127,7 @@ docs/defense.md         questions and answers for the defence
 docs/demo.md            demo script; docs/demo_runs.csv sample batch
 data/raw/ai4i2020.csv   original data; data/SOURCE.md attribution
 tests/                  pytest suite
+tests/data/             sample batch input for cli.py --batch
 report.docx, report.pdf generated report
 ```
 
