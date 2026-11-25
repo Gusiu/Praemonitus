@@ -111,6 +111,7 @@ notebooks/              analysis_and_model.ipynb
 data/raw/ai4i2020.csv   original data; data/SOURCE.md attribution
 tests/                  pytest suite
 tests/data/             sample batch input for cli.py --batch
+.github/workflows/      CI: pytest on GitHub Actions
 ```
 
 ## Data and licence
