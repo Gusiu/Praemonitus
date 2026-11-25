@@ -14,7 +14,7 @@ decision, stores every call in SQLite and shows the history.
 Random forest on raw and physics-derived features (temperature difference,
 power, tool strain), decision threshold chosen for a cost ratio of 10:1
 (missed failure : false alarm). On the held-out test set (2000 runs, 68
-failures), used once after the choice was frozen:
+failures), evaluated after the model and threshold were frozen:
 
 | Metric | Model | Always "no failure" |
 |---|---|---|
