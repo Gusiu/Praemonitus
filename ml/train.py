@@ -241,7 +241,7 @@ def cost_sensitivity(train_df: pd.DataFrame, best: dict, ratios=COST_RATIOS) -> 
 
 
 def evaluate_on_test(model, test_df: pd.DataFrame, fn_cost: float = DEFAULT_COST_RATIO) -> dict:
-    """The single use of the test set, after the model and threshold are frozen."""
+    """Evaluate the frozen model and threshold on the test set."""
     X, y = D.features_and_target(test_df)
     proba = model.predict_proba(X)[:, 1]
     return metrics_at_threshold(y, proba, model.best_threshold_, fn_cost=fn_cost)

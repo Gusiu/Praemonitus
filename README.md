@@ -14,7 +14,7 @@ decision, stores every call in SQLite and shows the history.
 Random forest on raw and physics-derived features (temperature difference,
 power, tool strain), decision threshold chosen for a cost ratio of 10:1
 (missed failure : false alarm). On the held-out test set (2000 runs, 68
-failures), used once after the choice was frozen:
+failures), evaluated after the model and threshold were frozen:
 
 | Metric | Model | Always "no failure" |
 |---|---|---|
@@ -27,7 +27,7 @@ failures), used once after the choice was frozen:
 
 Failures produced by the heat dissipation, power and overstrain rules are
 found in 56 of 57 cases; tool wear and unexplained failures are random with
-respect to the inputs. Details: `reports/report.md` and the notebook.
+respect to the inputs. Details: `notebooks/analysis_and_model.ipynb`.
 
 ## Requirements
 
@@ -35,7 +35,6 @@ respect to the inputs. Details: `reports/report.md` and the notebook.
 - the libraries pinned in `requirements.txt`: pandas, NumPy, scikit-learn
   1.9.1, SciPy, matplotlib, seaborn, joblib, Pydantic, Streamlit, pytest,
   Jupyter (nbconvert, nbformat, ipykernel); `sqlite3` from the standard library
-- optional, only to rebuild the report: pandoc and LibreOffice
 
 ## Installation
 
@@ -59,7 +58,7 @@ Console:
 python cli.py                       # interactive, asks again on invalid values
 python cli.py --history 10          # last 10 predictions
 python cli.py --export history.csv  # export the history to CSV
-python cli.py --batch docs/demo_runs.csv
+python cli.py --batch tests/data/demo_runs.csv
 ```
 
 Predictions are stored in `predictions.db` (ignored by git); set the
@@ -95,19 +94,6 @@ validation, model save and reload (including rejection of a modified file),
 predictor, database (including an SQL injection attempt), console interface
 and the Streamlit app (`streamlit.testing.v1.AppTest`).
 
-## Report
-
-`reports/report.md` is the single source; `report.docx` and `report.pdf` are
-generated from it:
-
-```bash
-cd reports
-pandoc report.md -o ../report.docx
-pandoc report.md -o ../report.pdf --pdf-engine=xelatex -V mainfont="DejaVu Serif"
-```
-
-Without XeLaTeX: `soffice --headless --convert-to pdf report.docx`.
-
 ## Structure
 
 ```
@@ -122,12 +108,10 @@ ml/validation.py        input validation (Pydantic)
 ml/predictor.py         shared prediction core
 models/                 model.joblib and model_card.json
 notebooks/              analysis_and_model.ipynb
-reports/                report.md, figures/, results.json
-docs/defense.md         questions and answers for the defence
-docs/demo.md            demo script; docs/demo_runs.csv sample batch
 data/raw/ai4i2020.csv   original data; data/SOURCE.md attribution
 tests/                  pytest suite
-report.docx, report.pdf generated report
+tests/data/             sample batch input for cli.py --batch
+.github/workflows/      CI: pytest on GitHub Actions
 ```
 
 ## Data and licence

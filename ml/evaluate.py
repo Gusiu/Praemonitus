@@ -107,7 +107,7 @@ def cv_summary(cv_results: dict, index: int, metrics) -> dict:
 
 
 def error_breakdown(y_true, y_pred, cause: pd.Series) -> pd.DataFrame:
-    """Detected and missed failures per failure mode, plus false alarms."""
+    """Detected and missed failures per failure mode and for all failures together."""
     frame = pd.DataFrame(
         {"y_true": np.asarray(y_true), "y_pred": np.asarray(y_pred), "cause": cause.values}
     )
